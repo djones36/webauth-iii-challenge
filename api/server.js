@@ -9,7 +9,7 @@ const logger = require("../middleware/loggerMiddleware");
 //Routes imports
 const tokenRegisterRoute = require("./routes/tokenRegisterRoute");
 const tokenLoginRoute = require("./routes/tokenLoginRoute");
-// const AuthUserRoute = require('./routes/authorization/authUserRoute');
+const AuthUserRoute = require("./routes/authorization/authUserRoute");
 // const tokenLogoutRoute = require('./routes/tokenLogoutRoute');
 
 server.use(helmet(), express.json(), logger, cors());
@@ -17,7 +17,7 @@ server.use(helmet(), express.json(), logger, cors());
 //Routes
 server.use("/api/register", tokenRegisterRoute);
 server.use("/api/login", tokenLoginRoute);
-// server.use("/api/authorization/users", AuthUserRoute);
+server.use("/api/auth/users", AuthUserRoute);
 // server.use("/api/logout", tokenLogoutRoute);
 
 //Deployment
