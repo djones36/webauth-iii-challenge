@@ -8,10 +8,10 @@ const Users = require("../models/globalModel");
 
 const bcrypt = require("bcryptjs");
 
-const generateToken = require("../../database/config/generateToken");
+const gt = require("../../database/config/generateToken");
 
 //Post for user to login to account
-router.post("/login", (req, res) => {
+router.post("/", (req, res) => {
   let { username, password } = req.body;
 
   Users.findBy({ username })
@@ -19,7 +19,7 @@ router.post("/login", (req, res) => {
     .then(user => {
       if (user && bcrypt.compareSync(password, user.password)) {
         //produce token
-        const token = generateToken(user);
+        const token = gt.generateToken(user);
 
         //add token to response
         res.status(200).json({
