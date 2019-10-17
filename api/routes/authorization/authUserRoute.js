@@ -2,6 +2,7 @@ const router = require("express").Router();
 const Users = require("../../models/globalModel");
 const restricted = require("../../../middleware/restrictionMiddleware");
 const errorRef = require("../../../middleware/errorRef");
+// const checkDepartment = require("../../../middleware/departmentMiddleware");
 
 router.get("/", restricted, (req, res) => {
   Users.find()
