@@ -2,9 +2,12 @@ const express = require("express");
 const server = express();
 const helmet = require("helmet");
 const cors = require("cors");
+
+//global middleware
 const logger = require("../middleware/loggerMiddleware");
+
 //Routes imports
-// const tokenSignupRoute = require('./routes/tokenSignUpRoute');
+// const tokenRegisterRoute = require('./routes/tokenRegisterRoute');
 // const tokenLoginRoute = require('./routes/tokenLoginRoute')
 // const AuthUserRoute = require('./routes/authorization/authUserRoute');
 // const tokenLogoutRoute = require('./routes/tokenLogoutRoute');
@@ -12,7 +15,7 @@ const logger = require("../middleware/loggerMiddleware");
 server.use(helmet(), express.json(), logger, cors());
 
 //Routes
-// server.use("/api/signup", tokenSignupRoute);
+// server.use("/api/register", tokenRegisterRoute);
 // server.use("/api/login", tokenLoginRoute);
 // server.use("/api/authorization/users", AuthUserRoute);
 // server.use("/api/logout", tokenLogoutRoute);
